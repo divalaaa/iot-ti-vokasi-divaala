@@ -1,0 +1,35 @@
+{
+    "version": 1,
+    "author": "Anonymous maker",
+    "editor": "wokwi",
+    "parts": [
+      { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+      { "type": "wokwi-relay-module", "id": "relay1", "top": -86.2, "left": 182.4, "attrs": {} },
+      {
+        "type": "wokwi-pushbutton",
+        "id": "btn1",
+        "top": 83,
+        "left": 201.6,
+        "attrs": { "color": "green", "xray": "1" }
+      },
+      {
+        "type": "wokwi-led",
+        "id": "led1",
+        "top": 159.6,
+        "left": 147.8,
+        "attrs": { "color": "red" }
+      }
+    ],
+    "connections": [
+      [ "esp:TX", "$serialMonitor:RX", "", [] ],
+      [ "esp:RX", "$serialMonitor:TX", "", [] ],
+      [ "relay1:VCC", "esp:3V3", "red", [ "h0" ] ],
+      [ "relay1:GND", "esp:GND.2", "black", [ "h0" ] ],
+      [ "relay1:IN", "esp:GND.2", "green", [ "h-57.6", "v76.6" ] ],
+      [ "btn1:2.l", "esp:GND.2", "green", [ "h-38.4", "v-28.6" ] ],
+      [ "btn1:1.l", "esp:19", "green", [ "h-96" ] ],
+      [ "led1:C", "esp:GND.2", "green", [ "v9.6", "h-38", "v-182.4" ] ],
+      [ "led1:A", "esp:18", "green", [ "v9.6", "h9.6", "v-105.6" ] ]
+    ],
+    "dependencies": {}
+  }
